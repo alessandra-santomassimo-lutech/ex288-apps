@@ -24,7 +24,7 @@ const pkg = require('./package.json');
 
 const PORT = parseInt(process.env.PORT || '8080', 10);
 const VERSION = process.env.APP_VERSION || pkg.version;
-const MESSAGE = process.env.APP_MESSAGE || 'Ciao dal branch feature-msg!';
+const MESSAGE = process.env.APP_MESSAGE || 'Messaggio v2 dal branch';
 const CONFIG_FILE = process.env.CONFIG_FILE || '/etc/app/app.properties';
 const READY_DELAY = parseInt(process.env.READY_DELAY_SECONDS || '0', 10);
 const startedAt = Date.now();
