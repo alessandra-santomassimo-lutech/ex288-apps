@@ -7,7 +7,7 @@ FROM registry.access.redhat.com/ubi9/nodejs-22-minimal
 USER 0
 WORKDIR /opt/app-root/src
 COPY --chown=1001:0 package.json server.js ./
-RUN mkdir -p /opt/app-root/data && chown 1001:1001 /opt/app-root/data && chmod 700 /opt/app-root/data
+RUN mkdir -p /opt/app-root/data && chown 1001:0 /opt/app-root/data && chmod 700 /opt/app-root/data
 
 USER 1001
 ENV PORT=8080 \
