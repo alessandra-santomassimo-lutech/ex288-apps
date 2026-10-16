@@ -20,12 +20,12 @@ COPY --chown=1001:0 package.json server.js test.js ./
 # Directory dati scrivibile da qualunque UID del gruppo 0
 USER 0
 RUN mkdir -p /opt/app-root/data && \
-    chgrp -R 0 /opt/app-root/data /opt/app-root/src && \
-    chmod -R g=u /opt/app-root/data /opt/app-root/src
+    chgrp -R 0 /opt/app-root/data /opt/app-root/src /opt/app-root/cache && \
+    chmod -R g=u /opt/app-root/data /opt/app-root/src /opt/app-root/cache
 USER 1001
 
 ENV PORT=8080 \
-    DATA_DIR=/opt/app-root/data \
+    DATA_DIR=/opt/app-root/cache \
     APP_MESSAGE="Immagine esame m03"
 
 EXPOSE 8080
