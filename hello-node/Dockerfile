@@ -10,7 +10,7 @@ FROM registry.access.redhat.com/ubi9/nodejs-22-minimal
 # Metadati utili in OpenShift (mostrati nel catalogo e da `oc describe istag`)
 LABEL io.k8s.description="hello-node: app didattica EX288" \
       io.k8s.display-name="hello-node" \
-      io.openshift.tags="nodejs,ex288"
+      io.openshift.tags="nodejs,ex288,ex288-exam"
 
 WORKDIR /opt/app-root/src
 
@@ -25,7 +25,8 @@ RUN mkdir -p /opt/app-root/data && \
 USER 1001
 
 ENV PORT=8080 \
-    DATA_DIR=/opt/app-root/data
+    DATA_DIR=/opt/app-root/data \
+    APP_MESSAGE="Immagine esame m03"
 
 EXPOSE 8080
 
