@@ -8,6 +8,9 @@ if [ ! -f /tmp/src/package.json ]; then
   exit 1
 fi
 /usr/libexec/s2i/assemble
-echo "build eseguita dal builder personalizzato ex288 il $(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-  > /opt/app-root/src/build-info.txt
+cat > /opt/app-root/src/build-info.txt <<INFO
+build eseguita dal builder personalizzato ex288 il $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+Node.js: $(node --version)
+INFO
+
 echo "---> [builder-ex288] build-info.txt scritto"
